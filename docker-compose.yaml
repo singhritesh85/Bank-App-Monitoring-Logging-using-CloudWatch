@@ -1,4 +1,3 @@
-
 version: "3.8"
 services:
   mysql-primary.mysql.svc.cluster.local:   # I made such a service name for mysql container because in that case I do not need to change application.properties file.
