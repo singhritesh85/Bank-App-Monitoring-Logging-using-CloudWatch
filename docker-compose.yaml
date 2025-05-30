@@ -3,8 +3,8 @@ services:
   mysql-primary.mysql.svc.cluster.local:   # I made such a service name for mysql container because in that case I do not need to change application.properties file.
     image: mysql:8.0.0
     environment:
-      MYSQL_ROOT_PASSWORD: Dexter@123
-      MYSQL_DATABASE: bankappdb
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
     - "3306:3306"
     logging:
@@ -24,7 +24,7 @@ services:
     environment:
       JDBC_URL: jdbc:mysql://mysql-primary.mysql.svc.cluster.local:3306/bankappdb?useSSL=false&serverTimezone=UTC
       JDBC_USER: root
-      JDBC_PASS: Dexter@123
+      JDBC_PASS: ${MYSQL_ROOT_PASSWORD}
     ports:
     - "8080:8080"
     logging:
