@@ -1,4 +1,6 @@
-def DOCKER_SERVER="10.10.4.16"  //Provide Docker Server Public IP/Private IP Address.
+
+
+def DOCKER_SERVER="10.10.4.195"  //Provide Docker Server Public IP/Private IP Address.
 pipeline {
     agent {
         label{
