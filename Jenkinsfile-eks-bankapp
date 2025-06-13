@@ -27,7 +27,7 @@ pipeline {
                 sh 'mvn clean install'
                 sh 'wget https://github.com/aws-observability/aws-otel-java-instrumentation/releases/download/v2.11.0/aws-opentelemetry-agent.jar'
                 sh 'docker system prune -f'
-                sh "docker build -t ${REPO_NAME}:${TAG_NAME} -f Dockerfile-Project-1 ."
+                sh "docker build -t ${REPO_NAME}:${TAG_NAME} -f Dockerfile-eks ."
                 sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 027330342406.dkr.ecr.us-east-2.amazonaws.com'
                 sh "docker push ${REPO_NAME}:${TAG_NAME}"
             }
